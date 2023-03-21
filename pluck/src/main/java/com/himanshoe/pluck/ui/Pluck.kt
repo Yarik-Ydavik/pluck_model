@@ -23,7 +23,11 @@ package com.himanshoe.pluck.ui
 * SOFTWARE.
 */
 import android.annotation.SuppressLint
+import android.content.ContentValues
+import android.content.Context
 import android.net.Uri
+import android.provider.MediaStore
+import android.widget.Toast
 import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -74,6 +78,8 @@ import com.himanshoe.pluck.theme.PluckDimens.HalfQuarter
 import com.himanshoe.pluck.util.PluckUriManager
 import com.himanshoe.pluck.util.PluckViewModelFactory
 import kotlinx.coroutines.flow.StateFlow
+import java.io.IOException
+import java.io.OutputStream
 
 private const val Select = "SELECT"
 private const val One = 1
@@ -85,7 +91,7 @@ private const val Three = 3
 fun Pluck(
     modifier: Modifier = Modifier,
     pluckConfiguration: PluckConfiguration = PluckConfiguration(),
-    onPhotoSelected: (List<PluckImage>) -> Unit,
+    onPhotoSelected: (MutableList<PluckImage>) -> Unit ,
 ) {
     val context = LocalContext.current
     val gridState: LazyGridState = rememberLazyGridState()
@@ -109,15 +115,16 @@ fun Pluck(
             modifier = Modifier,
             containerColor = MaterialTheme.colorScheme.primary,
             contentColor = MaterialTheme.colorScheme.onPrimary,
-            text = { Text(text = Select) },
-            onClick = { onPhotoSelected(pluckViewModel.selectedImage.value) },
+            text = { Text(text = "Выбрать") },
+            onClick = { onPhotoSelected(pluckViewModel.selectedImage.value as MutableList<PluckImage>) },
             icon = { Icon(Icons.Rounded.Check, "fab-icon") }
         )
     }, content = {
         val newModifier = modifier.padding(HalfQuarter)
         val cameraLauncher =
-            rememberLauncherForActivityResult(ActivityResultContracts.TakePicture()) { it: Boolean ->
-                onPhotoSelected(listOf(pluckViewModel.getPluckImage()) as List<PluckImage>)
+            rememberLauncherForActivityResult(ActivityResultContracts.TakePicture()) { it ->Boolean
+                onPhotoSelected((listOf(pluckViewModel.getPluckImage()) as List<PluckImage>).toMutableList())
+                lazyPluckImages.refresh()
             }
 
         LazyVerticalGrid(
@@ -182,7 +189,6 @@ private fun handleCamera(
 ) {
     onPhotoClicked.launch(pluckViewModel.getCameraImageUri())
 }
-
 @Composable
 internal fun PluckImage(
     modifier: Modifier,

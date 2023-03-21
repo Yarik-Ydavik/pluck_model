@@ -104,16 +104,6 @@ fun Permission(
                     )
                     Spacer(modifier = Modifier.height(PluckDimens.Three))
 
-                    Text(
-                        modifier = Modifier.alpha(0.3F),
-                        text = "Allowing access to your camera/storage will let you pick your memories asap!",
-                        textAlign = TextAlign.Center,
-                        color = MaterialTheme.colorScheme.onSurface,
-                        fontStyle = FontStyle.Normal,
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 16.sp,
-                    )
-                    Spacer(modifier = Modifier.height(PluckDimens.Three))
 
                     Button(
                         onClick = {
@@ -124,7 +114,7 @@ fun Permission(
                             .background(MaterialTheme.colorScheme.primary),
                     ) {
                         Text(
-                            text = "Enable permissions",
+                            text = "Предоставить доступ",
                             color = MaterialTheme.colorScheme.onPrimary
                         )
                     }
@@ -165,7 +155,7 @@ fun Permission(
                         .background(MaterialTheme.colorScheme.primary),
                 ) {
                     Text(
-                        text = "Go to Settings!",
+                        text = "Перейти к настройкам",
                         color = MaterialTheme.colorScheme.onPrimary
                     )
                 }
