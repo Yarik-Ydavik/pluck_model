@@ -66,7 +66,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "com.github.Yarik-Ydavik"
             artifactId = "pluck_model"
-            version = "3.5"
+            version = "3.6"
 
             afterEvaluate {
                 from(components["release"])

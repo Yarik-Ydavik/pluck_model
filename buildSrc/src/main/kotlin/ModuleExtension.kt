@@ -1,6 +1,6 @@
 object ModuleExtension {
     const val compileSdkVersion = 32
-    const val jvmTarget = "1.8"
+    const val jvmTarget = "11"
 
     object DefaultConfigs {
         const val minSdkVersion = 21
