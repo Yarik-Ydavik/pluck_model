@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.library)
     id(Plugins.kotlinAndroid)
+    id("maven-publish")
 }
 
 android {
@@ -58,3 +59,17 @@ dependencies {
     androidTestApi(Deps.AndroidTest.uiTestJunit)
 }
 plugins.apply(Plugins.vanniktechPublish)
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.Yarik-Ydavik"
+            artifactId = "pluck_model"
+            version = "2.5"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
