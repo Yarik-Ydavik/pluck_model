@@ -54,7 +54,7 @@ import coil.compose.rememberImagePainter
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.PermissionsRequired
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
-import com.himanshoe.pluck.R
+import com.himanshoe.pluck_model.R
 import com.himanshoe.pluck.theme.PluckDimens
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

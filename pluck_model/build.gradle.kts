@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.himanshoe.pluck"
+    namespace = "com.himanshoe.pluck_model"
     compileSdk = ModuleExtension.compileSdkVersion
 
     defaultConfig {
@@ -66,7 +66,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "com.github.Yarik-Ydavik"
             artifactId = "pluck_model"
-            version = "2.8"
+            version = "3.0"
 
             afterEvaluate {
                 from(components["release"])

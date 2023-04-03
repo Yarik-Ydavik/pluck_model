@@ -40,9 +40,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":pluck"))
 
 
+    implementation(project(":pluck_model"))
     implementation(Deps.Compose.ui)
     implementation(Deps.Compose.materialYou)
     implementation(Deps.Compose.uiToolingPreview)
