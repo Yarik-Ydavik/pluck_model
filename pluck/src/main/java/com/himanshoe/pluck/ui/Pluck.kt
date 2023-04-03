@@ -69,8 +69,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.compose.rememberImagePainter
-import com.himanshoe.pluck.PluckConfiguration
 import com.himanshoe.pluck.R
+import com.himanshoe.pluck.PluckConfiguration
 import com.himanshoe.pluck.data.PluckImage
 import com.himanshoe.pluck.data.PluckRepositoryImpl
 import com.himanshoe.pluck.theme.PluckDimens
