@@ -1,10 +1,11 @@
 plugins {
-    id(Plugins.library)
     id(Plugins.kotlinAndroid)
     id("maven-publish")
+    id("com.android.library")
 }
 
 android {
+    namespace = "com.himanshoe.pluck"
     compileSdk = ModuleExtension.compileSdkVersion
 
     defaultConfig {
@@ -25,8 +26,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = ModuleExtension.jvmTarget
@@ -65,7 +66,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "com.github.Yarik-Ydavik"
             artifactId = "pluck_model"
-            version = "2.5"
+            version = "2.8"
 
             afterEvaluate {
                 from(components["release"])

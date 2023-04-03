@@ -4,9 +4,11 @@ plugins {
 }
 
 android {
+    namespace = "com.himanshoe.app"
     compileSdk = ModuleExtension.compileSdkVersion
 
     defaultConfig {
+        applicationId = "com.himanshoe.app"
         minSdk = ModuleExtension.DefaultConfigs.minSdkVersion
         targetSdk = ModuleExtension.DefaultConfigs.targetSdkVersion
 
@@ -23,8 +25,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = ModuleExtension.jvmTarget
